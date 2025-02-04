@@ -1,5 +1,5 @@
 # PureScripts
-Collection of free open source scripts for thepure12's ScriptBuilder intended to be used as a starting point for developing scripts.
+Collection of free and open source scripts for thepure12's ScriptBuilder intended to be used as a starting point for developing scripts.
 
 **Scripts:**
 - [Ash Collector](https://github.com/thepure12/PureScripts/blob/main/PureAshCollector.js)
