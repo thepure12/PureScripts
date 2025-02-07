@@ -88,6 +88,14 @@ function getState() {
 }
 
 function getMissingItems() {
+    // Alternate code:
+    // let missingItems = []
+    // for (let item of REQUIRED_ITEMS) {
+    //     if (!api.inventory.hasItem(item)) {
+    //         missingItems.push(item)
+    //     }
+    // }
+    // return missingItems
     return REQUIRED_ITEMS.filter(item => !api.inventory.hasItem(item))
 }
 
@@ -96,7 +104,11 @@ function hasItems() {
 }
 
 function withdrawItems() {
-    REQUIRED_ITEMS.forEach(item => api.bank.withdrawItem(item))
+    // Alternate code:
+    // for (let item of getMissingItems()) {
+    //     api.bank.withdrawItem(item)
+    // }
+    getMissingItems().forEach(item => api.bank.withdrawItem(item))
 }
 
 function render() {
