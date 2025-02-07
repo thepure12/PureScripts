@@ -1,6 +1,6 @@
 const CONFIG = {
     // Default start paused to allow configuration
-    pause: { label: "Pause", value: true }
+    pause: { label: "Pause", value: true },
     // Text (string)
     text: { label: "Text", value: "Text" },
     // Checkbox (boolean)
