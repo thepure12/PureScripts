@@ -10,3 +10,7 @@ Collection of free and open source scripts for thepure12's ScriptBuilder intende
 - [Rooftop](https://github.com/thepure12/PureScripts/blob/main/PureRooftop.js)
 - [Sqirking](https://github.com/thepure12/PureScripts/blob/main/PureSqirking.js)
 - [Tabber](https://github.com/thepure12/PureScripts/blob/main/PureTabber.js)
+
+**Templates:**
+- [Basic](/templates/Basic)
+- [Items Required](/templates/RequiredItems)
