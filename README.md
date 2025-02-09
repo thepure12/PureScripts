@@ -2,7 +2,7 @@
 Collection of free and open source scripts for thepure12's ScriptBuilder intended to be used as a starting point for developing scripts.
 
 **Scripts:**
-- [Ash Collector](https://github.com/thepure12/PureScripts/blob/main/PureAshCollector.js)
+- [Ash Collector](/PureAshCollector.js)
 - [Construction](https://github.com/thepure12/PureScripts/blob/main/PureConstruction.js)
 - [Cooker](https://github.com/thepure12/PureScripts/blob/main/PureCooker.js)
 - [Miner](https://github.com/thepure12/PureScripts/blob/main/PureMiner.js)
