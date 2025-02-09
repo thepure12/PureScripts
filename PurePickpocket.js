@@ -1,75 +1,61 @@
 const CONFIG = {
+    pause: { label: "Pause", value: true },
     npc: { label: "NPC Name", value: "Master Farmer" },
     bank: { label: "Bank", value: true },
     food: { label: "Food", value: "Monkfish" },
     foodAmount: { label: "Food Amount", value: 3 },
     eatHp: { label: "Eat HP", value: 4 },
     useFood: { label: "Use Food", value: false },
-    animation: { label: "Wait For Animation", value: true },
-    state: { label: "Log State", value: false },
-    pause: { label: "Pause", value: true }
+    animationWait: { label: "Wait For Animation", value: true }
 }
 config.setConfig(CONFIG)
 
-const State = {
-    STUCK: -1,
-    PAUSED: 1,
-    BANKING: 2,
-    ANIMATING: 3,
-    DEPOSITING: 4,
-    ENABLE_RUN: 5,
-    THIEVING: 6,
-    HEALING: 7,
-    DROPPING: 8,
-    WITHDRAWING: 9,
-    POUCH_OPENING: 10,
-    OPENING_DOOR: 11,
+enum State {
+    STUCK,
+    PAUSED,
+    BANKING,
+    ANIMATING,
+    DEPOSITING,
+    ENABLE_RUN,
+    THIEVING,
+    HEALING,
+    DROPPING,
+    WITHDRAWING,
+    POUCH_OPENING,
+    OPENING_DOOR,
 }
-const STATE_MAP = Object.keys(State).reduce((mapped, key) => {
-    mapped[State[key]] = key
-    return mapped
-}, {})
-let state: number;
 
-function onGameTick(event: rl.events.GameTick) {
+let state: State
+let npc: string
+let startTick = client.getTickCount()
+
+function loop() {
+    startPaused()
+    npc = config.getString("npc")
     state = getState()
-    if (config.getBoolean("state")) {
-        log.info(STATE_MAP[state])
-    }
     switch (state) {
         case State.ANIMATING:
         case State.PAUSED:
         case State.STUCK:
             return
         case State.BANKING:
-            api.objects.interactWithAction("Bank", true)
-            break
+            return api.objects.interactWithAction("Bank", true)
         case State.DEPOSITING:
-            api.bank.depositAll()
-            break
+            return api.bank.depositAll()
         case State.ENABLE_RUN:
-            api.player.enableRun()
-            break
+            return api.player.enableRun()
         case State.THIEVING:
-            api.npcs.interactWith(config.getString("npc"), false, true, true, "Pickpocket")
-            break
+            return api.npcs.interactWith(npc, false, true, true, "Pickpocket")
         case State.HEALING:
-            if (config.getBoolean("useFood")) {
-                api.inventory.useItem(config.getString("food"), "Eat")
-            }
-            break
+            return api.inventory.useItem(config.getString("food"), "Eat")
         case State.DROPPING:
-            api.inventory.dropAll()
-            break
+            return api.inventory.dropAll()
         case State.WITHDRAWING:
-            api.bank.withdrawItem(config.getString("food"), config.getNumber("foodAmount"))
-            break
+            return api.bank.withdrawItem(config.getString("food"), config.getNumber("foodAmount"))
         case State.POUCH_OPENING:
-            api.inventory.useItem("Coin pouch", "Open-all")
-            break
+            return api.inventory.useItem("Coin pouch", "Open-all")
         case State.OPENING_DOOR:
-            api.objects.interactWithAction("Open", true)
-            break
+            return api.objects.interactWithAction("Open", true)
     }
 }
 
@@ -77,13 +63,11 @@ function getState() {
     if (config.getBoolean("pause")) {
         return State.PAUSED
     }
-    if (api.player.isRunOff()) {
-        if (api.player.runEnergy() >= 20) {
-            return State.ENABLE_RUN
-        }
+    if (api.player.isRunOff() && api.player.runEnergy() >= 20) {
+        return State.ENABLE_RUN
     }
     if (api.player.isAnimating() || api.player.isMoving()) {
-        if (state == State.THIEVING && !config.getBoolean("animation")) {
+        if (state == State.THIEVING && !config.getBoolean("animationWait")) {
             return State.THIEVING
         }
         return State.ANIMATING
@@ -92,10 +76,11 @@ function getState() {
         return State.OPENING_DOOR
     }
     if (api.bank.isOpen()) {
+        // This is a bit jank, consider making cleaner
         if (state != State.WITHDRAWING && !api.inventory.isEmpty()) {
             return State.DEPOSITING
         }
-        if (!hasNeededFood()) {
+        if (!hasFood()) {
             return State.WITHDRAWING
         }
     }
@@ -111,19 +96,37 @@ function getState() {
     if (api.inventory.isFull()) {
         return State.DROPPING
     }
-    if (api.player.hp() <= 4 || (config.getBoolean("useFood") && api.player.hp() <= config.getNumber("eatHp"))) {
-        if (!hasNeededFood()) {
-            if (api.inventory.hasItem("Coin pouch")) {
-                return State.POUCH_OPENING
-            }
+    if (shouldEat()) {
+        if (hasFood()) {
+            return State.HEALING
+        }
+        if (hasCoinPouch()) {
+            return State.POUCH_OPENING
+        }
+        if (config.getBoolean("bank")) {
             return State.BANKING
         }
-        return State.HEALING
     }
-    if (api.npcs.get("Master Farmer")) {
+    if (isNpcPresent()) {
         return State.THIEVING
     }
     return State.STUCK
+}
+
+function isNpcPresent() {
+    return api.npcs.get(npc).isPresent()
+}
+
+function hasFood() {
+    return !config.getBoolean("useFood") || api.inventory.getItemAmount(config.getString("food"), false) > 0
+}
+
+function hasCoinPouch() {
+    return api.inventory.hasItem("Coin pouch")
+}
+
+function shouldEat() {
+    return config.getBoolean("useFood") && api.player.hp() <= config.getNumber("eatHp")
 }
 
 function shouldBank() {
@@ -131,6 +134,14 @@ function shouldBank() {
     return config.getBoolean("bank") && api.inventory.isFull()
 }
 
-function hasNeededFood() {
-    return !config.getBoolean("useFood") || api.inventory.getItemAmount(config.getString("food"), false) > 0
+function startPaused() {
+    if (client.getTickCount() - startTick <= 2) {
+        config.setConfigItem("pause", true) // Will not update config UI in the editor
+    }
+}
+
+function render() {
+    if (state) {
+        ui.addText(State[state])
+    }
 }
