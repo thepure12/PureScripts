@@ -3,13 +3,13 @@ Collection of free and open source scripts for thepure12's ScriptBuilder intende
 
 **Scripts:**
 - [Ash Collector](/PureAshCollector.js)
-- [Construction](https://github.com/thepure12/PureScripts/blob/main/PureConstruction.js)
-- [Cooker](https://github.com/thepure12/PureScripts/blob/main/PureCooker.js)
-- [Miner](https://github.com/thepure12/PureScripts/blob/main/PureMiner.js)
-- [Pickpocket](https://github.com/thepure12/PureScripts/blob/main/PurePickpocket.js)
-- [Rooftop](https://github.com/thepure12/PureScripts/blob/main/PureRooftop.js)
-- [Sqirking](https://github.com/thepure12/PureScripts/blob/main/PureSqirking.js)
-- [Tabber](https://github.com/thepure12/PureScripts/blob/main/PureTabber.js)
+- [Construction](/PureConstruction.js)
+- [Cooker](/PureCooker.js)
+- [Miner](/PureMiner.js)
+- [Pickpocket](/PurePickpocket.js)
+- [Rooftop](/PureRooftop.js)
+- [Sqirking](/PureSqirking.js)
+- [Tabber](/PureTabber.js)
 
 **Templates:**
 - [Basic](/templates/Basic)
