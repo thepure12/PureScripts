@@ -1,3 +1,3 @@
 # PureScript Guide
-- [Introduction](/Introduction.md)
-- [Config](/Config.md)
+- [Introduction](/guide/Introduction.md)
+- [Config](/guide/Config.md)
