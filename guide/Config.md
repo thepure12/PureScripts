@@ -59,3 +59,4 @@ const CONFIG = {
 }
 config.setConfig(CONFIG) // Set the default config
 ```
+![example_config_img](https://i.postimg.cc/VNRkT8QS/example-config.png)
