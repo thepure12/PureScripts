@@ -2,14 +2,15 @@
 Collection of free and open source scripts for thepure12's ScriptBuilder intended to be used as a starting point for developing scripts.
 
 **Scripts:**
-- [Ash Collector](/PureAshCollector.js)
-- [Construction](/PureConstruction.js)
-- [Cooker](/PureCooker.js)
-- [Miner](/PureMiner.js)
-- [Pickpocket](/PurePickpocket.js)
-- [Rooftop](/PureRooftop.js)
-- [Sqirking](/PureSqirking.js)
-- [Tabber](/PureTabber.js)
+- [Ash Collector](/PureAshCollector.ts)
+- [Construction](/PureConstruction.ts)
+- [Cooker](/PureCooker.ts)
+- [Miner](/PureMiner.ts)
+- [Pickpocket](/PurePickpocket.ts)
+- [Rooftop](/PureRooftop.ts)
+- [Sawmill Planks](/PureSawmillPlanks.ts)
+- [Sqirking](/PureSqirking.ts)
+- [Tabber](/PureTabber.ts)
 
 **Templates:**
 - [Basic](/templates/Basic)
