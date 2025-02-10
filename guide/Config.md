@@ -45,7 +45,7 @@ config.setConfig(CONFIG) // Set the default config
 ```
 
 ### Example Config Setup
-```javacript
+```javascript
 const CONFIG = {
     items: { label: "Items Needed", value: "" }, // Plain text
     bank: { label: "Bank", value: true }, // Checkbox

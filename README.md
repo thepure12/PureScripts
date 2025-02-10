@@ -15,7 +15,7 @@ Collection of free and open source scripts for thepure12's ScriptBuilder intende
 **Templates:**
 - [Basic](/templates/Basic)
 - [Items Required](/templates/RequiredItems)
-- [Interact With Object](/templates/InteractWithObject)'
+- [Interact With Object](/templates/InteractWithObject)
 
 **Guide**
 - [Introduction](/guide/Introduction.md)
