@@ -14,3 +14,6 @@ PureScriptBuilder is a script-building framework designed to streamline OSRS aut
 - Setting up script config
 - Writing your first script
 - Techniques for readability and optimization`
+
+#### What's Next?
+- **[Config](/guide/Config.md)**

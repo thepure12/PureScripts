@@ -59,4 +59,7 @@ const CONFIG = {
 }
 config.setConfig(CONFIG) // Set the default config
 ```
-![example_config_img](https://i.postimg.cc/VNRkT8QS/example-config.png)
+![example_config_img](https://i.postimg.cc/y8WNG56n/Screenshot-from-2025-02-10-14-55-15.png)
+
+#### What's Next?
+- **[Main Loop](/guide/Loop.md)**
