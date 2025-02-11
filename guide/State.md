@@ -73,3 +73,6 @@ function loop() {
 - ✅ Simplifies logic – Keeps `loop()` clean and easy to manage.
 - ✅ Enhances readability – Uses named states instead of complex conditional statements.
 - ✅ Prevents bot-like behavior – Makes the script more adaptable to in-game changes.
+
+#### What's Next?
+- **[Performing Actions](/guide/Actions.md)**
