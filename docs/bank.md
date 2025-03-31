@@ -1,4 +1,4 @@
-# BankUtil
+# bank
 
 ```typescript
 function bankFullInventory(): boolean;

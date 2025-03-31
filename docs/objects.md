@@ -1,4 +1,4 @@
-# ObjectUtil
+# objects
 
 ```typescript
 function cardinalDistanceTo(tileObject: TileObject): number;

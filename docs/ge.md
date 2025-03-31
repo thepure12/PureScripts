@@ -1,4 +1,4 @@
-# GrandExchangeUtil
+# ge
 
 ```typescript
 function buy(): boolean;

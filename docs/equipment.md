@@ -1,4 +1,4 @@
-# EquipmentUtil
+# equipment
 
 ```typescript
 function getEquipmentMap(): HashMap<EquipmentInventorySlot, Integer>;

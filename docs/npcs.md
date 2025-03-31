@@ -1,4 +1,4 @@
-# NpcUtil
+# npcs
 
 ```typescript
 function attack(id: number): boolean;

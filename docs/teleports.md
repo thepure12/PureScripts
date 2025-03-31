@@ -1,4 +1,4 @@
-# TeleportUtil
+# teleports
 
 ```typescript
 function breakTablet(name: string): boolean;

@@ -1,4 +1,4 @@
-# PathUtil
+# pathing
 
 ```typescript
 function canPathToObject(name: string): boolean;

@@ -1,4 +1,4 @@
-# ShopUtil
+# shop
 
 ```typescript
 function asWidget(): Widget;

@@ -1,4 +1,4 @@
-# SkillingUtil
+# skilling
 
 ```typescript
 function getBestToolIdForLevel(skill: string): number;

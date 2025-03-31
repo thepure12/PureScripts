@@ -1,4 +1,4 @@
-# TradeUtil
+# trade
 
 ```typescript
 function accept(): boolean;

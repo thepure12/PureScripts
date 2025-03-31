@@ -1,4 +1,4 @@
-# SpellUtil
+# spells
 
 ```typescript
 function alchNoted(): boolean;

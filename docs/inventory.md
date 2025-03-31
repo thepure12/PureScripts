@@ -1,4 +1,4 @@
-# InventoryUtil
+# inventory
 
 ```typescript
 function comboEatWithKarambwan(): boolean;

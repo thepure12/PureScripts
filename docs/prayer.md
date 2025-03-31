@@ -1,4 +1,4 @@
-# PrayerUtil
+# prayer
 
 ```typescript
 function flickPrayer(prayer: Prayer): boolean;

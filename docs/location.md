@@ -1,4 +1,4 @@
-# LocationUtil
+# location
 
 ```typescript
 function distanceTo(point: WorldPoint): number;

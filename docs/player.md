@@ -1,4 +1,4 @@
-# PlayerUtil
+# player
 
 ```typescript
 function enableRun(): boolean;

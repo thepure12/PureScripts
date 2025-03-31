@@ -1,4 +1,4 @@
-# WorldUtil
+# worlds
 
 ```typescript
 function getCurrentWorld(): World;

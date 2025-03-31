@@ -1,4 +1,4 @@
-# QuestUtil
+# quests
 
 ```typescript
 function doQuest(questName: string): boolean;

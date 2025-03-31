@@ -1,4 +1,4 @@
-# FairyRingUtil
+# fairyrings
 
 ```typescript
 function configureNearest(): boolean;

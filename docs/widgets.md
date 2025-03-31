@@ -1,4 +1,4 @@
-# WidgetUtil
+# widgets
 
 ```typescript
 function get(id: number): Optional<Widget>;
