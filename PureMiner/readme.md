@@ -4,16 +4,16 @@ Mines and banks (or drops). Supports break handler.
 
 ## Dev
 
-### Setup
+#### Setup
 
 - Clone
 - Open in vscode
 - Run "Init Purescript"
 
-### Run
+#### Run
 
 - Run "Run Purescript"
 
-### Build
+#### Build
 
 - Run "Build Purescript"
