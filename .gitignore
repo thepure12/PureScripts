@@ -2,3 +2,4 @@ docgen.sh
 docs_include.csv
 .vscode
 vscode-scripts
+*dist*
