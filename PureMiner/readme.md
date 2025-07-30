@@ -1,5 +1,5 @@
 # PureMiner
-Mines and banks (or drops). Support break handler.
+Mines and banks (or drops). Supports break handler.
 
 ## Dev
 - Clone
