@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "ES2017"
+    ],
+    "typeRoots": [
+      "./.vscode/pure-api.d.ts"
+    ]
+  },
+  "include": [
+    "./src",
+    "./.vscode/pure-api.d.ts"
+  ]
+}
